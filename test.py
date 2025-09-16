@@ -1,8 +1,8 @@
-from picamera2 import Picamera2, Preview
-import time
+from picamera import PiCamera
+from time import sleep
 
-picam2 = Picamera2()
-picam2.start_preview(Preview.QTGL)  # Open preview window
-picam2.start()
-time.sleep(10)  # keep preview open for 10 sec
-picam2.stop()
+camera = PiCamera()
+camera.start_preview(alpha=192)
+sleep(1)
+camera.capture("/home/pi/Desktop/pic.jpg")
+camera.stop_preview()
